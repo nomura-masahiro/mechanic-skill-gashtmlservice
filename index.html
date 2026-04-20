@@ -18,19 +18,19 @@
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .menu a {
+    .menu button {
       display: block;
       width: 100%;
       padding: 15px;
       margin: 15px 0 5px;
       font-size: 16px;
-      text-decoration: none;
       color: black;
       border: 1px solid #666;
       border-radius: 4px;
       background-color: #f0f0f0;
+      cursor: pointer;
     }
-    .menu a:hover {
+    .menu button:hover {
       background-color: #e0e0e0;
     }
     .description {
@@ -47,26 +47,30 @@
 
 <div class="menu">
 
-  <!-- 整備士用 -->
-  <a
-    href="https://script.google.com/macros/s/AKfycbyyo8VfYbeqEvKWlpnnWD8GWtotRU66RtNvveCoWiymQOK_qGQRiGpV4YbTNZVbxO4iTA/exec?page=login"
-    target="_top"
-  >
+  <!-- 整備士用：必ず新しいタブで GAS を開く -->
+  <button onclick="openMechanic()">
     整備士スキル登録
-  </a>
+  </button>
   <div class="description">
     フリーランス自動車整備士の方はこちら
   </div>
 
-  <!-- 整備工場用 -->
-  <a href="list.html">
-    整備士スキル情報一覧・検索
-  </a>
-  <div class="description">
+  <!-- 整備工場用（静的ページ） -->
+  <button onclick="location.href='list.html'<div class="description">
     整備工場の担当者の方はこちら
   </div>
 
 </div>
+
+<script>
+function openMechanic() {
+  // ✅ GAS は必ずトップレベルで開く（iframe回避）
+  window.open(
+    "https://script.google.com/macros/s/AKfycbyyo8VfYbeqEvKWlpnnWD8GWtotRU66RtNvveCoWiymQOK_qGQRiGpV4YbTNZVbxO4iTA/exec?page=login",
+    "_blank"
+  );
+}
+</script>
 
 </body>
 </html>
